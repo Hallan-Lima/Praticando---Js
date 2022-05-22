@@ -11,10 +11,12 @@
  var head1 = document.getElementsByTagName('h1')[2];        
  head1.style.color = 'red';
 
+ //
+ var porcent = document.querySelector('')
+
  function contador(opcao) {
-     var valorMudarElemento = document.getElementById('valor');
-     console.log(opcao);
-     var valor = valorMudarElemento.innerHTML;
+     var valorMudarElemento = document.getElementById('valor');     //conteudo HTML
+     var valor = valorMudarElemento.innerHTML;                      //valor que contem
      if (opcao == 's') {
         ++valor;
         valorMudarElemento.innerHTML = valor;
@@ -22,8 +24,7 @@
         --valor;
         valorMudarElemento.innerHTML = valor;
      }
- }
-
+}
  function validaNumerosPares(array) {
     let valorRetorno = [];
     for (let i = 0; i < array.length; i++) {
@@ -34,6 +35,25 @@
         }
     }
     console.log(valorRetorno);
+}
+function loadingShow() {
+    const div = document.createElement('div');      //comando para criar uma tag
+    div.classList.add('loading');                        // comando para adicionar uma class
+    
+    const label = document.createElement('label');
+    label.innerText = ("Carregando...");
+
+    div.appendChild(label);
+
+    document.body.appendChild(div);                       // comando para incluir alguma div
+
+    setTimeout (() => loadingRemove(),2000);
+}
+function loadingRemove() {
+    var loadings = document.getElementsByClassName('loading');
+    if (loadings.length) {
+        loadings[0].remove();
+    }
 }
 
 let array = [1,3,4,5,7,8];
