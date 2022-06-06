@@ -1,0 +1,118 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
+    <meta name="generator" content="Hugo 0.98.0">
+    <title>Features · Bootstrap v5.2</title>
+
+    <link rel="canonical" href="https://getbootstrap.com/docs/5.2/examples/features/">
+    <link href="../css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom styles for this template -->
+    <link href="../css/features.css" rel="stylesheet">
+  </head>
+  <body>
+    
+
+<main>
+<div class="container px-4 py-5" id="featured-3">
+
+    <div id="msg" class="alert alert-primary alert-dismissible fade" role="alert">
+        msg teste
+    </div>
+
+    <div class="accordion">
+        <div class="accordion-item">
+          <h4 class="accordion-header" >
+            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#ex1" aria-expanded="false" aria-controls="ex1">
+                EX1 - Sistema de multa
+            </button>
+          </h4>
+          <div id="ex1" class="accordion-collapse collapse " aria-labelledby="ex1" data-bs-parent="#ex1">
+            <div class="accordion-body">
+                <div class="input-group form-floating mb-3">
+                    <input type="number" class="form-control" id="floatingInput" placeholder="Velocidade do carro:">
+                    <label for="floatingInput">Velocidade do carro:</label>
+                    <button type="button" class=" btn btn-dark" onclick="verificarVeloricade()">Validar velocidade</button>
+                </div>
+            </div>
+          </div>
+        </div>
+        <div class="accordion-item">
+          <h4 class="accordion-header">
+            <button class="accordion-button " type="button" data-bs-toggle="collapse" data-bs-target="#EX2" aria-expanded="true" aria-controls="EX2">
+              EX 2 - Estrutura de laço
+            </button>
+          </h4>
+          <div id="EX2" class="accordion-collapse collapse show" aria-labelledby="EX2" data-bs-parent="#EX2">
+            <div class="accordion-body">
+                <div class="progress mb-3">
+                    <div class="progress-bar bg-info text-dark" id="sideBar" role="progressbar" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100"></div>
+                </div>
+            </div>
+          </div>
+        </div>
+        <div class="accordion-item">
+          <h4 class="accordion-header">
+            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#EX3" aria-expanded="false" aria-controls="EX3">
+              EX 3 - Teste de adivinhação
+            </button>
+          </h4>
+          <div id="EX3" class="accordion-collapse collapse" aria-labelledby="EX3" data-bs-parent="#EX3">
+            <div class="accordion-body">
+                <div class="accordion-body">
+                    <p class="form-control text-center">Tente adivinhar o numero entre 0 a 10</p>
+                    <div class="input-group mb-3">
+                        <input type="number" class="form-control" id="floatAdivinhar" placeholder="Tente adivinhar:">
+                        <button type="button" class=" btn btn-dark" >Verificar valor</button>
+                    </div>
+                </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+</div>
+
+</main>
+    <script src="../js/bootstrap.bundle.min.js"></script>
+    <script>
+        function verificarVeloricade() {
+            let txt = document.getElementById('msg');
+            let velocidade = document.getElementById('floatingInput');
+
+            if (velocidade.value == '') {
+                msgRetorno('informe um valor');
+            }else if (velocidade.value >= 60) {
+                    msgRetorno('Acima da velocidade');
+                }else {
+                    msgRetorno('Velocidade aceita');
+                }
+            
+        }
+
+        function msgRetorno(msg) {
+            let alertMsg = document.getElementById('msg');
+            alertMsg.innerText = msg;
+            alertMsg.classList.add('show');                
+            
+            setTimeout (() => {
+                alertMsg.classList.remove('show');
+            },3000);
+        }
+
+        function carregando() {
+            let sideBar = document.getElementById('sideBar');
+            for (let v = 0; v <= 100; v++) {
+                sideBar.style.width = v+'%';
+            }
+        }
+        carregando();
+        
+    </script>      
+  </body>
+</html>
